@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.settings_item:
                 //setContentView(R.layout.activity_settings);
-                new SettingsActivity();
+                //new SettingsActivity();
                 return true;
             case R.id.help_item:
                 return true;
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private void getFoodItems(List<FoodItem> foodItemList) {
         foodItemRecyclerView = findViewById(R.id.food_items_recycler);
         foodItemAdapter = new FoodItemAdapter(this, foodItemList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         foodItemRecyclerView.setLayoutManager(layoutManager);
         foodItemRecyclerView.setAdapter(foodItemAdapter);
     }
