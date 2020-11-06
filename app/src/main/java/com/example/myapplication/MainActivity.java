@@ -24,17 +24,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
+//        foodItemList.add(new FoodItem("Chicken", new Date(120,10,6)));
+//        foodItemList.add(new FoodItem("Cheese", new Date(120,10,6)));
+//        foodItemList.add(new FoodItem("Ham", new Date(120,10,6)));
+//
+//        getFoodItems(foodItemList);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_menu, menu);
+        return true;
+    }
+
+    @Override
+    protected void onStart () {
+        super.onStart();
         ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
         foodItemList.add(new FoodItem("Chicken", new Date(120,10,6)));
         foodItemList.add(new FoodItem("Cheese", new Date(120,10,6)));
         foodItemList.add(new FoodItem("Ham", new Date(120,10,6)));
 
         getFoodItems(foodItemList);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.top_menu, menu);
-        return true;
+        
     }
 
     @Override
