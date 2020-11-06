@@ -17,8 +17,8 @@ public class Parser {
         Gson gson = new Gson();
         Type listUserType = new TypeToken<List<FoodItem>>() { }.getType();
 
-        List<FoodItem> users = gson.fromJson(jsonFileString, listUserType);
-        return users;
+        List<FoodItem> foodItemList = gson.fromJson(jsonFileString, listUserType);
+        return foodItemList;
     }
 
     public static String getJSONObject(FoodItem f)

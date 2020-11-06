@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class Database {
 
-    static String getJsonFromAssets(Context context, String fileName) {
+    public static String getJsonFromAssets(Context context, String fileName) {
         String jsonString;
         try {
             InputStream inputStream = context.getAssets().open(fileName);

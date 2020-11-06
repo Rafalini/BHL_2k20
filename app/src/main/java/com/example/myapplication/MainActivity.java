@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myapplication.models.FoodItem;
+import com.example.myapplication.models.Parser;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,13 +24,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
-//        foodItemList.add(new FoodItem("Chicken", new Date(120,10,6)));
-//        foodItemList.add(new FoodItem("Cheese", new Date(120,10,6)));
-//        foodItemList.add(new FoodItem("Ham", new Date(120,10,6)));
-//
-//        getFoodItems(foodItemList);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,13 +34,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart () {
         super.onStart();
-        ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
-        foodItemList.add(new FoodItem("Chicken", new Date(120,10,6)));
-        foodItemList.add(new FoodItem("Cheese", new Date(120,10,6)));
-        foodItemList.add(new FoodItem("Ham", new Date(120,10,6)));
-
+        ArrayList<FoodItem> foodItemList = (ArrayList<FoodItem>) Parser.getFoodItems(getApplicationContext());
         getFoodItems(foodItemList);
-        
     }
 
     @Override
