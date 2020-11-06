@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="settingsPL">USTAWIENIA</string>
+    <string name="app_name">Stay Fresh</string>
+    <string name="settingsPLTitle">USTAWIENIA</string>
+    <string name="settingsPLButton">Ustawienia</string>
+    <string name="helpPLButton">Pomoc</string>
+    <string name="darkMode">Tryb nocny</string>
+    <string name="darkModePL">Tryb Nocny</string>
+    <string name="notificationOnPL">Włącz Powiadomienia</string>
+    <string name="returnTextPL">Powrót</string>
+    <string name="mainFragmentLabel">mainFragmentLabel</string>
+    <string name="second_fragment_label">settingFragmentLabel</string>
 </resources>
