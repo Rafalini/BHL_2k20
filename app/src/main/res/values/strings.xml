@@ -9,4 +9,7 @@
     <string name="returnTextPL">Powrót</string>
     <string name="mainFragmentLabel">mainFragmentLabel</string>
     <string name="second_fragment_label">settingFragmentLabel</string>
+    <string name="settingsFragmentLabel">settingsFragmentLabel</string>
+    <string name="a">newElementFragmentLabel</string>
+    <string name="newElementFragmentLabel">newElementFragmentLabel</string>
 </resources>
