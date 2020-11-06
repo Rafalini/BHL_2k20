@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Toast.makeText(this, "Selected Item: " +item.getTitle(), Toast.LENGTH_SHORT).show();
         switch (item.getItemId()) {
-            case R.id.search_item:
-                // do your code
+            case R.id.settings_item:
+                setContentView(R.layout.activity_settings);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
