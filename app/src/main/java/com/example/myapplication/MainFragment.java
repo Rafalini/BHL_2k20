@@ -28,9 +28,8 @@ public class MainFragment extends Fragment {
         view.findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //dodanie nowego produktu
-                Snackbar.make(view, "dodawanie nowego produktu", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                NavHostFragment.findNavController(MainFragment.this)
+                        .navigate(R.id.action_MainFragment_to_NewElementFragment);
             }
         });
     }
