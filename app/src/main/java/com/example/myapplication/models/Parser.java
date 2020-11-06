@@ -4,16 +4,17 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 
 public class Parser {
 
-    private static final String FILE_NAME = "database.json";
-
-    public static List<FoodItem> getFoodItems(Context context)
-    {
-        String jsonFileString = Database.getJsonFromAssets(context, FILE_NAME);
+    public static List<FoodItem> getFoodItems(Context context) throws IOException {
+        String jsonFileString = Database.getJsonFromAssets(context);
         Gson gson = new Gson();
         Type listUserType = new TypeToken<List<FoodItem>>() { }.getType();
 
@@ -21,9 +22,10 @@ public class Parser {
         return foodItemList;
     }
 
-    public static String getJSONObject(FoodItem f)
-    {
-        Gson gson = new Gson();
-        return gson.toJson(f);
+    public static JSONObject getJSONObject(FoodItem f) throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", f.name);
+        jsonObject.put("expirationDate", f.expirationDate);
+        return jsonObject;
     }
 }

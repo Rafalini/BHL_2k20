@@ -8,9 +8,13 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.myapplication.models.Database;
 import com.example.myapplication.models.FoodItem;
 import com.example.myapplication.models.Parser;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,8 +38,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart () {
         super.onStart();
-        ArrayList<FoodItem> foodItemList = (ArrayList<FoodItem>) Parser.getFoodItems(getApplicationContext());
+        ArrayList<FoodItem> foodItemList = null;
+        try {
+            foodItemList = (ArrayList<FoodItem>) Parser.getFoodItems(getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         getFoodItems(foodItemList);
+        try {
+            Database.saveFoodItem(getApplicationContext(), foodItemList.get(0));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
