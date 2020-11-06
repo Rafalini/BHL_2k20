@@ -1,14 +1,24 @@
 package com.example.myapplication.models;
-import com.google.gson.Gson;
+import android.content.Context;
 
-import org.json.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 public class Parser {
-    public static FoodItem getFoodItem(String s)
-    {
-        Gson gson = new Gson();
 
-        return  gson.fromJson(s, FoodItem.class);
+    private static final String FILE_NAME = "database.json";
+
+    public static List<FoodItem> getFoodItems(Context context)
+    {
+        String jsonFileString = Database.getJsonFromAssets(context, FILE_NAME);
+        Gson gson = new Gson();
+        Type listUserType = new TypeToken<List<FoodItem>>() { }.getType();
+
+        List<FoodItem> users = gson.fromJson(jsonFileString, listUserType);
+        return users;
     }
 
     public static String getJSONObject(FoodItem f)
