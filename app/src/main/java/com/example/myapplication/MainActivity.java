@@ -44,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Selected Item: " +item.getTitle(), Toast.LENGTH_SHORT).show();
         switch (item.getItemId()) {
             case R.id.settings_item:
-                setContentView(R.layout.activity_settings);
+                //setContentView(R.layout.activity_settings);
+                new SettingsActivity();
+                return true;
+            case R.id.help_item:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
