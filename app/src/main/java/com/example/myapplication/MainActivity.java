@@ -1,24 +1,22 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myapplication.models.FoodItem;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView foodItemRecyclerView;
+    ListView foodItemListView;
     FoodItemAdapter foodItemAdapter;
 
     @Override
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<FoodItem> foodItemList = new ArrayList<FoodItem>();
+        ArrayList<FoodItem> foodItemList = new ArrayList<FoodItem>();
         foodItemList.add(new FoodItem("Chicken", new Date(120,10,6)));
         foodItemList.add(new FoodItem("Cheese", new Date(120,10,6)));
         foodItemList.add(new FoodItem("Ham", new Date(120,10,6)));
@@ -54,12 +52,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getFoodItems(List<FoodItem> foodItemList) {
-        foodItemRecyclerView = findViewById(R.id.food_items_recycler);
+    private void getFoodItems(ArrayList<FoodItem> foodItemList) {
+        foodItemListView = findViewById(R.id.food_items_list);
         foodItemAdapter = new FoodItemAdapter(this, foodItemList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        foodItemRecyclerView.setLayoutManager(layoutManager);
-        foodItemRecyclerView.setAdapter(foodItemAdapter);
+        foodItemListView.setAdapter(foodItemAdapter);
     }
 
 }

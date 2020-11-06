@@ -4,58 +4,55 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.annotation.Nullable;
 import com.example.myapplication.models.FoodItem;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
+import java.util.ArrayList;
 
-public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.FoodItemViewHolder> {
+public class FoodItemAdapter extends ArrayAdapter<FoodItem> {
 
-    private Context context;
-    private List<FoodItem> foodList;
+    private final Context context;
 
-    public FoodItemAdapter(Context context, List<FoodItem> foodList) {
+    public FoodItemAdapter(Context context, ArrayList<FoodItem> values) {
+        super(context, -1, values);
         this.context = context;
-        this.foodList = foodList;
     }
 
     @NonNull
     @Override
-    public FoodItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.food_recycler_items, parent, false);
-        return new FoodItemViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull FoodItemViewHolder holder, int position) {
-        holder.foodItemName.setText(foodList.get(position).getName());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String date = dateFormat.format(foodList.get(position).getExpirationDate());
-        String dateText = "Expiration date: " + date;
-        holder.foodItemDate.setText(dateText);
-    }
-
-    @Override
-    public int getItemCount() {
-        return foodList.size();
-    }
-
-    public static class FoodItemViewHolder extends RecyclerView.ViewHolder {
-
-        TextView foodItemName;
-        TextView foodItemDate;
-
-        public FoodItemViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            foodItemName = itemView.findViewById(R.id.food_item_name);
-            foodItemDate = itemView.findViewById(R.id.food_item_date);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        ItemViewHolder holder;
+        if(convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.food_recycler_items, null);
+            holder = new ItemViewHolder();
+            holder.nameTextView = (TextView) convertView.findViewById(R.id.food_item_name);
+            holder.dateTextView = (TextView) convertView.findViewById(R.id.food_item_date);
+            convertView.setTag(holder);
+        } else {
+            holder = (ItemViewHolder) convertView.getTag();
         }
+
+
+        FoodItem foodItem = getItem(position);
+        holder.nameTextView.setText(foodItem.getName());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String date = dateFormat.format(foodItem.getExpirationDate());
+        String dateText = "Expiration date: " + date;
+        holder.dateTextView.setText(dateText);
+
+        return convertView;
     }
+
+    static class ItemViewHolder {
+        private TextView nameTextView;
+        private TextView dateTextView;
+    }
+
 
 }
