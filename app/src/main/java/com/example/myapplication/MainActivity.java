@@ -15,8 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.models.DatabaseHelper;
 import com.example.myapplication.models.FoodItem;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ListView foodItemListView;
     FoodItemAdapter foodItemAdapter;
     DatabaseHelper dbHelper;
+    public static final String EXTRA_MESSAGE = "com.example.myapplication.extramessage";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +99,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        foodItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplication(), SelectedItemActivity.class);
+                Date expDate = foodItemList.get(position).getExpirationDate();
+                String data = foodItemList.get(position).getName()+ "\n" + SimpleDateFormat.getDateInstance().format(expDate);
+                intent.putExtra(EXTRA_MESSAGE, data);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void AddData(FoodItem newEntry) {
