@@ -54,5 +54,8 @@ public class FoodItemAdapter extends ArrayAdapter<FoodItem> {
         private TextView dateTextView;
     }
 
-
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 }

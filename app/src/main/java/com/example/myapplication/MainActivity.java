@@ -5,7 +5,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 String dateStr = data.getString(2);
                 e.printStackTrace();
             }
-            foodItemList.add(new FoodItem(data.getString(1), date));
+            foodItemList.add(new FoodItem(data.getString(0), data.getString(1), date));
         }
         getFoodItems(foodItemList);
     }
@@ -74,6 +77,25 @@ public class MainActivity extends AppCompatActivity {
         foodItemListView = findViewById(R.id.food_items_list);
         foodItemAdapter = new FoodItemAdapter(this, foodItemList);
         foodItemListView.setAdapter(foodItemAdapter);
+        foodItemListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        FoodItem foodItem = (FoodItem) foodItemListView.getItemAtPosition(position);
+                        dbHelper.deleteProduct(foodItem.getID());
+                        finish();
+                        startActivity(getIntent());
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+                return true;
+            }
+        });
     }
 
     public void AddData(FoodItem newEntry) {

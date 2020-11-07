@@ -57,7 +57,7 @@ public class NewElementFragment extends Fragment {
                 String foodExpirationDate = dateText.getText().toString().substring(19);
                 try {
                     Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(foodExpirationDate);
-                    FoodItem newEntry = new FoodItem(foodName, expirationDate);
+                    FoodItem newEntry = new FoodItem(null, foodName, expirationDate);
                     dbHelper.addData(newEntry);
                 } catch (ParseException e) {
                     e.printStackTrace();
