@@ -9,6 +9,8 @@ których termin ważności się zbliża lub już upłynął. Dzięki temu oraz w
 w których wykorzystywane są konkretne składniki będziemy w stanie mądrzej rozporządzać zakupionymi produktami tak, by nic
 się nie zmarnowało!
 
+![image](https://user-images.githubusercontent.com/44322872/98440874-9f836280-20fb-11eb-8034-d26ad6520049.png)
+
 ### Stack technologiczny
 Aplikacja powstała w języku Java, z wykorzystaniem Gradle jako narzędzia do optymalizacji kompilacji. Przy tworzeniu
 aplikacji korzystaliśmy z Android Studio, dzięki czemu byliśmy w stanie szybko zaprojektować warstwę wizualną aplikacji.
@@ -19,6 +21,8 @@ na rynku.
 Aplikacja jest bardzo wygodna w użyciu i posiada intuicyjny dla użytkownika interfejs graficzny. 
 Użytkownik nie opuszczając aplikacji ma możliwość wyszukiwania przepisów związanych z konkretnymi
 produktami, co z pewnością ułatwi planowanie posiłków.
+
+![image](https://user-images.githubusercontent.com/44322872/98440891-bfb32180-20fb-11eb-9e8b-7c7f37ed8116.png)
 
 ### Innowacyjność i potencjał biznesowy
 Aplikacja jest innowacyjna, nie ma dostępnej na rynku aplikacji o podobnej funkcjonalności, co rodzi potencjał
