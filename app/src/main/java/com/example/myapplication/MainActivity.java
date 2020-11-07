@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.myapplication.models.DatabaseHelper;
 import com.example.myapplication.models.FoodItem;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbHelper = new DatabaseHelper(this);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart () {
         super.onStart();
-
+        Cursor data = dbHelper.getData();
+        ArrayList<FoodItem> foodItemList = new ArrayList<>();
+        while(data.moveToNext()) {
+            foodItemList.add(new FoodItem(data.getString(1), new Date(data.getString(2))));
+        }
+        getFoodItems(foodItemList);
     }
 
     @Override
