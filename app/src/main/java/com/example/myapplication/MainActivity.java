@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.example.myapplication.models.DatabaseHelper;
 import com.example.myapplication.models.FoodItem;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -40,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
         Cursor data = dbHelper.getData();
         ArrayList<FoodItem> foodItemList = new ArrayList<>();
         while(data.moveToNext()) {
-            foodItemList.add(new FoodItem(data.getString(1), new Date(data.getString(2))));
+            Date date = null;
+            try {
+                date = new SimpleDateFormat("yyyy-MM-dd").parse(data.getString(2));
+            } catch (ParseException e) {
+                String name = data.getString(1);
+                String dateStr = data.getString(2);
+                e.printStackTrace();
+            }
+            foodItemList.add(new FoodItem(data.getString(1), date));
         }
         getFoodItems(foodItemList);
     }

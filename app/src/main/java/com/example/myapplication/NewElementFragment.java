@@ -4,12 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.myapplication.models.DatabaseHelper;
+import com.example.myapplication.models.FoodItem;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NewElementFragment extends Fragment {
+
+    private DatabaseHelper dbHelper;
 
     @Override
     public View onCreateView(
@@ -17,6 +27,7 @@ public class NewElementFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
+        dbHelper = new DatabaseHelper(getActivity().getApplicationContext());
         return inflater.inflate(R.layout.new_element_fragment, container, false);
     }
 
@@ -26,6 +37,20 @@ public class NewElementFragment extends Fragment {
         view.findViewById(R.id.confirmButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText nameText = getView().findViewById(R.id.ProductNameInput);
+                EditText dateText = getView().findViewById(R.id.ExpirationDateInput);
+
+                String foodName = nameText.getText().toString();
+                Date foodExpirationDate = null;
+                try {
+                    foodExpirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateText.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                FoodItem newEntry = new FoodItem(foodName, foodExpirationDate);
+
+                dbHelper.addData(newEntry);
+
                 NavHostFragment.findNavController(NewElementFragment.this)
                         .navigate(R.id.action_NewElementFragment_to_MainFragment);
             }
