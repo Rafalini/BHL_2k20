@@ -31,6 +31,5 @@ nie tylko o środowisko, ale również o swoje finanse.
 Aplikacja ma duży potencjał rozwojowy. Przykładami funkcjonalności, które można by w niej jeszcze zaimplementować są:
 - Tworzenie listy zakupów dla produktów, które się skończyły.
 - Usprawnienie dodawania produktów przez wykorzystanie aparatu w telefonie i narzędzi analizy obrazu oraz uczenia maszynowego.
-- Implementacja powiadomień "push", które ułatwią korzystanie z aplikacji wysyłając przypomnienia o zbliżających się
+- Implementacja powiadomień "push", które ułatwią korzystanie z aplikacji wysyłając przypomnienia o zbliżających się terminach przydatności do spożycia.
 - Implementacja preferencji wyglądu użytkownika
-terminach przydatności do spożycia.
