@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <Button
         android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:text="Zatwierdź"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExpirationDateInput"
+        app:layout_constraintTop_toBottomOf="@+id/selectDateButton"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -22,61 +23,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="40dp"
         android:text="Anuluj"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExpirationDateInput"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/productNamePLLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Nazwa produktu:"
-        app:layout_constraintBottom_toBottomOf="@+id/ProductNameInput"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/expirationDateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Data przydatności:"
-        app:layout_constraintBottom_toBottomOf="@+id/ExpirationDateInput"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectDateButton"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/ProductNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_field_bg"
+        android:drawablePadding="16dp"
         android:ems="10"
+        android:hint="Nazwa produktu"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/productNamePLLabel"
+        android:paddingStart="16dp"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddNewProductTitle"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/AddNewProductTitle"
-        android:layout_width="339dp"
-        android:layout_height="66dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Dodaj Nowy Produkt"
+        android:textColor="#333333"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/ExpirationDateInput"
+    <Button
+        android:id="@+id/selectDateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/ProductNameInput"
-        app:layout_constraintTop_toBottomOf="@+id/ProductNameInput"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#B32626"
+        android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+        android:text="Data przydatności"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateDisplayText" />
+
+    <TextView
+        android:id="@+id/dateDisplayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProductNameInput" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
