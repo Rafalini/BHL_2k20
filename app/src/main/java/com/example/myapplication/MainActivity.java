@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart () {
+
         super.onStart();
         Cursor data = dbHelper.getData();
         ArrayList<FoodItem> foodItemList = new ArrayList<>();

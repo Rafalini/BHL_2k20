@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,15 @@ public class MainFragment extends Fragment {
         return inflater.inflate(R.layout.main_fragment, container, false);
     }
 
+
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         view.findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(MainFragment.this)
-                        .navigate(R.id.action_MainFragment_to_NewElementFragment);
+                startActivity(new Intent(getContext(), NewElementActivity.class));
             }
         });
     }

@@ -1,13 +1,10 @@
 package com.example.myapplication;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,7 +18,6 @@ import com.example.myapplication.models.FoodItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class NewElementFragment extends Fragment {
@@ -67,16 +63,14 @@ public class NewElementFragment extends Fragment {
                     e.printStackTrace();
                 }
 
-                NavHostFragment.findNavController(NewElementFragment.this)
-                        .navigate(R.id.action_NewElementFragment_to_MainFragment);
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
 
         view.findViewById(R.id.cancelButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(NewElementFragment.this)
-                        .navigate(R.id.action_NewElementFragment_to_MainFragment);
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
     }
