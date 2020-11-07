@@ -1,32 +1,25 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.fragment.NavHostFragment;
 
-import android.content.ClipData;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.myapplication.models.Database;
+import com.example.myapplication.models.DatabaseHelper;
 import com.example.myapplication.models.FoodItem;
-import com.example.myapplication.models.Parser;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.json.JSONException;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
 
     ListView foodItemListView;
     FoodItemAdapter foodItemAdapter;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart () {
         super.onStart();
-        ArrayList<FoodItem> foodItemList = null;
-        try {
-            foodItemList = (ArrayList<FoodItem>) Parser.getFoodItems(getApplicationContext());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        getFoodItems(foodItemList);
-        try {
-            Database.saveFoodItem(getApplicationContext(), foodItemList.get(0));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
@@ -74,5 +56,16 @@ public class MainActivity extends AppCompatActivity {
         foodItemAdapter = new FoodItemAdapter(this, foodItemList);
         foodItemListView.setAdapter(foodItemAdapter);
     }
+
+    public void AddData(FoodItem newEntry) {
+        boolean insertData = dbHelper.addData(newEntry);
+        if(insertData) {
+
+        } else {
+
+        }
+    }
+
+
 
 }
