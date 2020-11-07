@@ -1,4 +1,4 @@
-#### StayFresh - Aplikacja mobilna ułatwiająca oszczędzanie jedzenia!
+### StayFresh - Aplikacja mobilna ułatwiająca oszczędzanie jedzenia!
 
 ### Wprowadzenie
 Ile razy zdarzyło wam się kupić coś do jedzenia, potem schować to w lodówce i zapomnieć potem o tym na kilka tygodni?
