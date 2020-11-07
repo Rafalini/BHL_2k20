@@ -13,6 +13,7 @@ import android.widget.PopupMenu;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.models.DatabaseHelper;
+import com.example.myapplication.models.DateSorter;
 import com.example.myapplication.models.FoodItem;
 
 import java.text.DateFormat;
@@ -59,13 +60,18 @@ public class MainActivity extends AppCompatActivity {
             }
             foodItemList.add(new FoodItem(data.getString(0), data.getString(1), date));
         }
+        //sortowanie fooditem
+
+        DateSorter.mySort(foodItemList);
+
+        //
         getFoodItems(foodItemList);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings_item:
+            case R.id.goToSettings_item:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             case R.id.help_item:
