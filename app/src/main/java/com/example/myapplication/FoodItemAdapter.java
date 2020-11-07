@@ -43,7 +43,7 @@ public class FoodItemAdapter extends ArrayAdapter<FoodItem> {
         holder.nameTextView.setText(foodItem.getName());
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = dateFormat.format(foodItem.getExpirationDate());
-        String dateText = "Expiration date: " + date;
+        String dateText = "Data przydatności: " + date;
         holder.dateTextView.setText(dateText);
 
         return convertView;

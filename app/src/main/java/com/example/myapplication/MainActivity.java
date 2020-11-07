@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.example.myapplication.models.DatabaseHelper;
 import com.example.myapplication.models.DateSorter;
