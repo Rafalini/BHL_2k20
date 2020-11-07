@@ -33,7 +33,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = dateFormat.format(date);
         TextView dateDisplayText = getActivity().findViewById(R.id.dateDisplayText);
-        String displayDate = "Expiration date: " + dateString;
+        String displayDate = "Data przydatności: " + dateString;
         dateDisplayText.setText(displayDate);
     }
 }

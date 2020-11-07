@@ -58,7 +58,7 @@ public class NewElementFragment extends Fragment {
                 String foodName = nameText.getText().toString();
 
                 TextView dateText = getView().findViewById(R.id.dateDisplayText);
-                String foodExpirationDate = dateText.getText().toString().substring(17);
+                String foodExpirationDate = dateText.getText().toString().substring(19);
                 try {
                     Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(foodExpirationDate);
                     FoodItem newEntry = new FoodItem(foodName, expirationDate);
