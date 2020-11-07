@@ -12,7 +12,7 @@ się nie zmarnowało!
 ![image](https://user-images.githubusercontent.com/44322872/98440874-9f836280-20fb-11eb-8034-d26ad6520049.png)
 
 ### Stack technologiczny
-Aplikacja powstała w języku [Java](https://en.wikipedia.org/wiki/Java_(software_platform)), z wykorzystaniem Gradle jako narzędzia do optymalizacji kompilacji. Przy tworzeniu
+Aplikacja powstała w języku [Java](https://en.wikipedia.org/wiki/Java_(software_platform)), z wykorzystaniem [Gradle](https://gradle.org/) jako narzędzia do optymalizacji kompilacji. Przy tworzeniu
 aplikacji korzystaliśmy z Android Studio, dzięki czemu byliśmy w stanie szybko zaprojektować warstwę wizualną aplikacji.
 Wykorzystaliśmy Android API 21 (Lollipop 5.0), które pozwoli nam zagwarantować wsparcie dla około 94% urządzeń obecnych
 na rynku. 
