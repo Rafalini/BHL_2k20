@@ -16,10 +16,8 @@ Wykorzystaliśmy Android API 21 (Lollipop 5.0), które pozwoli nam zagwarantowa�
 na rynku. 
 
 ##Wygoda użytkowania
-Aplikacja jest bardzo wygodna w użyciu i posiada intuicyjny dla użytkownika interfejs graficzny. Dzięki implementacji
-powiadomień "push" nie wymaga ona od użytkownika, by pamiętał o sprawdzaniu stanu jego produktów żywnościowych,
-wysyłając raz dziennie powiadomienie zachęcające do sprawdzenia stanu, bądź informujące o produktach zagrożonych
-przeterminowaniem. Użytkownik nie opuszczając aplikacji ma możliwość wyszukiwania przepisów związanych z konkretnymi
+Aplikacja jest bardzo wygodna w użyciu i posiada intuicyjny dla użytkownika interfejs graficzny. 
+Użytkownik nie opuszczając aplikacji ma możliwość wyszukiwania przepisów związanych z konkretnymi
 produktami, co z pewnością ułatwi planowanie posiłków.
 
 ##Innowacyjność i potencjał biznesowy
@@ -31,5 +29,7 @@ nie tylko o środowisko, ale również o swoje finanse.
 
 ##Potencjał rozwojowy
 Aplikacja ma duży potencjał rozwojowy. Przykładami funkcjonalności, które można by w niej jeszcze zaimplementować są:
-- Tworzenie listy zakupów dla produktów, które się skończyły
-- Usprawnienie dodawania produktów przez wykorzystanie aparatu w telefonie i narzędzi analizy obrazu oraz uczenia maszynowego
+- Tworzenie listy zakupów dla produktów, które się skończyły.
+- Usprawnienie dodawania produktów przez wykorzystanie aparatu w telefonie i narzędzi analizy obrazu oraz uczenia maszynowego.
+- Implementacja powiadomień "push", które ułatwią korzystanie z aplikacji wysyłając przypomnienia o zbliżających się
+terminach przydatności do spożycia.
