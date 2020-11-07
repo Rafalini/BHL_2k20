@@ -14,4 +14,9 @@
     <string name="newElementFragmentLabel">newElementFragmentLabel</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
     <string name="setFontSize">setFontSize</string>
+    <string name="helpTextString">Aplikacja służy do zapisywania produktów spożywczych wraz z ich
+        termin przydatności w celu ułatwienia pamiętania o spożyciu danego produktu przed końcem
+        terminu przydatności.Aby dodać nowy produktu należy wybrać przycisk "+" znajdujacy sie w
+        dolnej części menu głównego aplikacji a następnie podać nazwę produktu oraz jego termin przydatności.
+        Ponadto można wybrać dany produkt aby obejrzeć proponowane przepisy wraz z wykorzystaniem danego produktu.</string>
 </resources>
