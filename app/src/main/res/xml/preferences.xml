@@ -2,8 +2,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/darkMode"
+        android:summary="Pozwala na włącznie/wyłączenie trybu nocnego"
+        android:title="Tryb nocny" />
+    <EditTextPreference
         android:defaultValue="true"
-        android:key="example_switch"
-        android:summary="turn this option on or off"
-        android:title="Settings options" />
+        android:key="@string/setFontSize"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Edit text preference" />
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/notificationOnPL"
+        android:summary="Pozwala na włączenie/wyłączenie powiadomień"
+        android:title="Powiadomienia" />
 </PreferenceScreen>

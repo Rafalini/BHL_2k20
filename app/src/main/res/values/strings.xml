@@ -13,4 +13,5 @@
     <string name="a">newElementFragmentLabel</string>
     <string name="newElementFragmentLabel">newElementFragmentLabel</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="setFontSize">setFontSize</string>
 </resources>
