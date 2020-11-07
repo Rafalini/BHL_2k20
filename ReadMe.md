@@ -33,3 +33,4 @@ Aplikacja ma duży potencjał rozwojowy. Przykładami funkcjonalności, które m
 - Usprawnienie dodawania produktów przez wykorzystanie aparatu w telefonie i narzędzi analizy obrazu oraz uczenia maszynowego.
 - Implementacja powiadomień "push", które ułatwią korzystanie z aplikacji wysyłając przypomnienia o zbliżających się terminach przydatności do spożycia.
 - Implementacja możliwych modyfikacji wyglądu użytkownika
+- Rozbudowanie sugestii potraw o uwzględnianie wielu produktów
