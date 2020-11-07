@@ -1,12 +1,16 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -18,6 +22,7 @@ import com.example.myapplication.models.FoodItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class NewElementFragment extends Fragment {
@@ -26,6 +31,8 @@ public class NewElementFragment extends Fragment {
     private String foodName;
     private String date;
     private DialogFragment calendarDialogFragment;
+
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -35,6 +42,10 @@ public class NewElementFragment extends Fragment {
         dbHelper = new DatabaseHelper(getActivity().getApplicationContext());
         calendarDialogFragment = new DatePickerFragment();
         return inflater.inflate(R.layout.new_element_fragment, container, false);
+
+
+
+
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -54,16 +65,44 @@ public class NewElementFragment extends Fragment {
                 String foodName = nameText.getText().toString();
 
                 TextView dateText = getView().findViewById(R.id.dateDisplayText);
-                String foodExpirationDate = dateText.getText().toString().substring(19);
-                try {
-                    Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(foodExpirationDate);
-                    FoodItem newEntry = new FoodItem(null, foodName, expirationDate);
-                    dbHelper.addData(newEntry);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
 
-                startActivity(new Intent(getContext(), MainActivity.class));
+                if (foodName.isEmpty() || dateText.getText().toString().isEmpty()){
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                    builder.setCancelable(true);
+                    builder.setTitle("Brak danych");
+                    builder.setMessage("Nazwa lub data ważności produktu nie zostały podane ");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) { }
+                    });
+                    builder.show();
+                } else {
+                    String foodExpirationDate = dateText.getText().toString().substring(19);
+                    try {
+                        Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(foodExpirationDate);
+                        if(expirationDate.before(Calendar.getInstance().getTime())){
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setCancelable(true);
+                            builder.setTitle("Zła data ważności");
+                            builder.setMessage("Data ważności nie może być wcześniejsza od dzisiejszego dnia.");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) { }
+                            });
+                            builder.show();
+
+                        } else {
+                            FoodItem newEntry = new FoodItem(null, foodName, expirationDate);
+                            dbHelper.addData(newEntry);
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
 
