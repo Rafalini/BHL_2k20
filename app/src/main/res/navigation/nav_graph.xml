@@ -12,23 +12,8 @@
         tools:layout="@layout/main_fragment">
 
         <action
-            android:id="@+id/action_MainFragment_to_SettingsFragment"
-            app:destination="@id/SettingsFragment" />
-
-        <action
             android:id="@+id/action_MainFragment_to_NewElementFragment"
             app:destination="@id/NewElementFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/SettingsFragment"
-        android:name="com.example.myapplication.SettingsFragment"
-        android:label="@string/settingsFragmentLabel"
-        tools:layout="@layout/activity_settings">
-
-        <action
-            android:id="@+id/action_SettingsFragment_to_MainFragment"
-            app:destination="@id/MainFragment" />
     </fragment>
 
     <fragment

@@ -12,4 +12,5 @@
     <string name="settingsFragmentLabel">settingsFragmentLabel</string>
     <string name="a">newElementFragmentLabel</string>
     <string name="newElementFragmentLabel">newElementFragmentLabel</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
 </resources>
